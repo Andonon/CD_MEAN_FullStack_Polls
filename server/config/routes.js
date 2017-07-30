@@ -1,32 +1,24 @@
 const mongoose = require('mongoose');
-// const some_name =require('../controllers/controller_some_name.js') 
+const path = require('path');
+const users = require('../controllers/users.js');
+const polls = require('../controllers/polls.js')
+
 module.exports = function(app){ 
 
-
-
-
-//     //Sample Routes
-//    app.get('/', function(req, res) {
-//        some_name.show(req,res);
-//    });
-//    app.get('/new', function(req, res){
-//        res.render('add');
-//    });
-//    app.post("/add", function(req, res){
-//        some_name.add(req, res);
-//    });
-//    app.get("/destroy/:id", function(req, res){
-//        some_name.destroy(req, res);
-//    });
-//    app.post("/edit/:id", function (req, res){
-//        some_name.edit (req, res);
-//    });
-
+    app.post('/registerorlogin', function(req, res){
+        users.registerorlogin(req, res);
+    });
+    app.get('/get_logged_in_user', function(req, res){
+        users.get_logged_in_user(req, res);
+    });
+    app.get('/logoff', function(req, res){
+        users.logoff(req, res);
+    });
 
 // This route should be the last route in this file, to ensure non express routes go to Angular.
 // reroutes all traffic routes not listed above to Angualr’s routes.
   app.get('*', (req, res) => {
-       res.sendFile(path.resolve('./public/dist/index.html'));
+       res.sendFile(path.resolve('./client/dist/index.html'));
    });
 }
 

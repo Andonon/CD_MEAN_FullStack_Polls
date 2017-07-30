@@ -1,0 +1,9 @@
+#compheader h3 {
+    display: inline-block;
+    width: 400px
+
+}
+#compheader p {
+    display: inline-block;
+    width: 300px;
+}

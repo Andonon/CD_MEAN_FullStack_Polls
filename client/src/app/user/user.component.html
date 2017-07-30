@@ -1,3 +1,24 @@
-<p>
-  user works!
-</p>
+<div id="wrapper" style="text-align:center">
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}. 
+  </h1>
+  <h5>Create your personal surveys here and poll your friends to see what they like.</h5>
+</div>
+  <h3>Login / Register for My Surveys access</h3>
+  <div>
+    <form (submit)="registerorlogin()" #registerOrLoginForm='ngForm'>
+      <h1>Register / Login</h1>
+      <h5><i>if your email already exists, you will be logged in.</i></h5>
+      <label for="name">Name:</label>
+        <input type="text" name="name" required maxlength='50' [(ngModel)]="user.name" #name='ngModel'><br><br>
+          <span class="formerrors" *ngIf='!name.valid && name.dirty'>
+          <i>Name is required.</i></span>
+      <label for="email">Email Address:</label>
+        <input type="password" name="email" required pattern='([a-zA-Z0-9\-\_\"]+)([\_\.\-\+{1}])?([a-zA-Z0-9\-\"\_]+)\@([a-zA-Z0-9\[]+)([\-])?([a-zA-Z0-9]+)?([\.])([a-zA-Z0-9\.\]]+)$' [(ngModel)]="user.email" #email='ngModel'><br><br> <!--placeholder="valid email required"-->
+          <span class="formerrors" *ngIf='!email.valid && email.dirty'>
+          <i>Email is required and must be correct format</i></span>
+      <input [disabled]='!registerOrLoginForm.valid' type="submit" Value="Register and Login"><br><br>
+    </form><br><br>
+  </div>
+</div>

@@ -13,15 +13,13 @@ app.use(session({
    resave: false,
    saveUninitialized: true
 }))
-app.use(bodyParser.json)
+app.use(bodyParser.json())
 
 require("./server/config/mongoose.js")
 require("./server/config/routes.js")(app);
 
-const server = app.listen(port, function() {
+app.listen(port, function() {
     console.log("listening on port", port);
 })
-
-
 
 
