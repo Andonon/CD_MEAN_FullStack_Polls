@@ -9,8 +9,8 @@ export class PollService {
 
   constructor(private http: Http) { }
 
-  get_logged_in_user(){
-    return this.http.get('/get_logged_in_user')
+  get_curr_user(){
+    return this.http.get('/get_curr_user')
             .map(data => data.json())
             .toPromise();
   }
@@ -21,5 +21,16 @@ export class PollService {
             .toPromise();
   }
 
+  get_all_polls(){
+    return this.http.get('/get_all_polls')
+            .map(data => data.json())
+            .toPromise();
+  }
+  
+  get_one_poll(pollid){
+    return this.http.get('/get_one_poll', pollid)
+            .map(data => data.json())
+            .toPromise();
+  }
 
 }

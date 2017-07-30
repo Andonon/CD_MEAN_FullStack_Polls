@@ -8,14 +8,20 @@ module.exports = function(app){
     app.post('/registerorlogin', function(req, res){
         users.registerorlogin(req, res);
     });
-    app.get('/get_logged_in_user', function(req, res){
-        users.get_logged_in_user(req, res);
+    app.get('/get_curr_user', function(req, res){
+        users.get_curr_user(req, res);
     });
     app.get('/logoff', function(req, res){
         users.logoff(req, res);
     });
     app.post('/create_poll', function(req, res){
         polls.create_poll(req, res);
+    });
+    app.get('/get_all_polls', function(req, res){
+        polls.get_all_polls(req, res);
+    });
+     app.get('/get_one_poll', function(req, res){
+        polls.get_one_poll(req, res);
     });
 
 // This route should be the last route in this file, to ensure non express routes go to Angular.

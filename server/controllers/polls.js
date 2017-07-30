@@ -9,6 +9,7 @@ module.exports = {
                 .then(user => {
                     console.log(req.body)
                     let poll = new Poll;
+                        poll._user = req.session.user_id
                         poll.question = req.body.question 
                         poll.option1 = req.body.option1
                         poll.option2 = req.body.option2
@@ -27,6 +28,43 @@ module.exports = {
         res.json(false);
         }
     },
+
+    delete_one_poll: function(req, res){ 
+        Poll.delete( { _id: req.body.id } )
+            .then(deleteresult => {
+                res.status(200).json(deleteresult)
+            })
+            .catch(deleteresulterr => res.status(579).json(deleteresulterr))
+    },
+
+    get_all_polls: function(req, res){ 
+        Poll.find( {} )
+            .populate('_user')
+            .then(polldata => {
+                res.status(200).json(polldata)
+                console.log("polldata:",polldata)
+            })
+            .catch(polldataerr => res.status(580).json(polldataerr))
+    },
+
+
+    get_one_poll: function(req, res){
+        console.log(req.body) 
+        Poll.findById(req._id)
+            .populate('_user')
+            .then(polldata => {
+                res.status(200).json(polldata)
+                console.log("polldata:",polldata)
+            })
+            .catch(polldataerr => res.status(580).json(polldataerr))
+    },
+
+
 };
+
+
+
+
+
 
 

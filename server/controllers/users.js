@@ -28,13 +28,11 @@ module.exports = {
                 res.status(599).json(err);
             });
     },
-    get_logged_in_user: function(req, res){
+    get_curr_user: function(req, res){
         if(req.session.user_id){
-            User.findById(req.session.user_id)
-                .then(user => res.json(user))
-                .catch(err => res.status(500).json(err));
+            res.status(200).json(req.session.user_id);
         } else {
-        res.json(false);
+            res.status(501).json(err);
         }
     },
 

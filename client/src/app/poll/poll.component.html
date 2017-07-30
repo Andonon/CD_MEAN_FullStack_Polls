@@ -3,10 +3,22 @@
   <a [routerLink]="['/create']">Create a New Poll</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/logoff">Logout</a>
 <div>
 <div id="testlinks">
-<p><a href='/get_curr_user_buckets'> Get All Polls JSON (for testing this app)</a></p>
+<p><a href='/get_all_polls'> Get All Polls JSON (for testing this app)</a></p>
 </div>
 <div>
 <div id="main">
-  
-  
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Survey Question</th>
+      <th>Date Posted</th>
+      <th>Action</th>
+    </tr>
+    <tr *ngFor="let poll of current_polls">
+      <td>{{poll._user.name}}</td>
+      <td><a [routerLink]="['/poll',poll._id]">{{poll.question}}</a></td>
+      <td>{{poll.createdAt | date: shortDate }}</td>
+      <td><span *ngIf="poll._user._id==logged_in_user">Delete</span></td>
+    </tr>
+  </table>
 </div>

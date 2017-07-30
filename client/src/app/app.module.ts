@@ -9,14 +9,16 @@ import { UserComponent } from './user/user.component';
 import { PollComponent } from './poll/poll.component';
 import { UserService } from './user/user.service'
 import { PollService } from './poll/poll.service';
-import { CreateComponent } from './poll/create/create.component'
+import { CreateComponent } from './poll/create/create.component';
+import { PolldetailComponent } from './poll/polldetail/polldetail.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
     PollComponent,
-    CreateComponent
+    CreateComponent,
+    PolldetailComponent
   ],
   imports: [
     BrowserModule,
