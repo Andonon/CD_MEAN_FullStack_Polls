@@ -10,7 +10,7 @@ import { Router, ActivatedRoute } from '@angular/router'
 })
 export class PolldetailComponent implements OnInit {
 
-  poll_id = params._id
+  poll_id: string
   current_poll = Poll;
 
   constructor(private pollservice: PollService, private router: Router, private route: ActivatedRoute) { 
@@ -20,8 +20,7 @@ export class PolldetailComponent implements OnInit {
   }
 
   ngOnInit() {
-  
-  this.get_poll_detail()
+  this.get_poll_detail(this.poll_id)
   }
 
   get_poll_detail(poll_id){
