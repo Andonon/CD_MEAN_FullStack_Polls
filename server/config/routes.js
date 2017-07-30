@@ -14,6 +14,9 @@ module.exports = function(app){
     app.get('/logoff', function(req, res){
         users.logoff(req, res);
     });
+    app.post('/create_poll', function(req, res){
+        polls.create_poll(req, res);
+    });
 
 // This route should be the last route in this file, to ensure non express routes go to Angular.
 // reroutes all traffic routes not listed above to Angualr’s routes.

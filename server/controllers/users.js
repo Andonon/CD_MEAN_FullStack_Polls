@@ -30,7 +30,6 @@ module.exports = {
     },
     get_logged_in_user: function(req, res){
         if(req.session.user_id){
-            console.log("In get Logged In User: req.session.ID found: ", req.session.id)
             User.findById(req.session.user_id)
                 .then(user => res.json(user))
                 .catch(err => res.status(500).json(err));

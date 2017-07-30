@@ -13,21 +13,11 @@ export class PollComponent implements OnInit {
   
   logged_in_user: User
 
-  constructor(private pollservice: PollService, private router: Router) { }
+  constructor(private pollservice: PollService, private router: Router) {  
+  }
 
   ngOnInit() {
-
   }
 
-  
-
-
-  get_logged_in_user(){  
-    this.pollservice.get_logged_in_user()
-      .then(data => {
-        this.logged_in_user = data
-      })
-      .catch(err => console.log(err));
-      this.router.navigate(["/login"])
-  }
 }
+ 

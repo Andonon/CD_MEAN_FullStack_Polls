@@ -14,4 +14,12 @@ export class PollService {
             .map(data => data.json())
             .toPromise();
   }
+
+  create_poll(poll: Poll){
+    return this.http.post('/create_poll', poll)
+            .map(data => data.json())
+            .toPromise();
+  }
+
+
 }

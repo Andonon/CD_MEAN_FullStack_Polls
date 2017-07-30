@@ -1,15 +1,11 @@
 <div id="compheader"> 
   <h3>Your Current Polls:</h3>
-  <a href="">Create a New Poll</a> | <a href="/logoff">Logout</a>
+  <a [routerLink]="['/create']">Create a New Poll</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/logoff">Logout</a>
 <div>
 <div id="testlinks">
 <p><a href='/get_curr_user_buckets'> Get All Polls JSON (for testing this app)</a></p>
 </div>
 <div>
-<p>Click the names below to view their bucket list. </p>
-
-Current user Data: Session: {{logged_in_user | json}}
-</div>
 <div id="main">
   
   
